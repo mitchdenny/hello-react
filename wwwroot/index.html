@@ -21,7 +21,7 @@
       var HelloWorld = React.createClass({
         render: function() {
             return (
-                <div className="message">Hello World!</div>
+                <div className="message">{this.props.greeting} {this.props.audience}!</div>
             );
         }
       });
@@ -29,7 +29,7 @@
       var GoodbyeWorld = React.createClass({
         render: function () {
             return (
-                <div className="message">Good-bye World!</div>
+                <div className="message">{this.props.farewell} {this.props.audience}!</div>
             );
         }
       });
@@ -38,15 +38,15 @@
         render: function() {
             return (
                 <div className="container">
-                    <HelloWorld />
-                    <GoodbyeWorld />
+                    <HelloWorld {...this.props} />
+                    <GoodbyeWorld {...this.props} />
                 </div>
             );
         }
       });
 
       ReactDOM.render(
-        <Application />,
+        <Application greeting="Yo!" farewell="Cheers!" audience="Seattle" />,
         document.getElementById('app')
         );
     </script>
